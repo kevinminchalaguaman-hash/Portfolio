@@ -1,0 +1,278 @@
+/* ---------- Colors and settings in one place ---------- */
+:root {
+  --bg: #1e1033;
+  --surface: #0a0612;
+  --border: #3d2a66;
+  --text: #efe9fa;
+  --muted: #b5a8d1;
+  --accent: #a78bfa;
+}
+
+/* ---------- Basics ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0 0 10px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin: 0 0 20px;
+  color: var(--accent);
+}
+
+h3 {
+  margin: 0 0 8px;
+}
+
+/* ---------- Navigation bar ---------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(10, 6, 18, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+nav {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 24px;
+}
+
+nav ul a {
+  color: var(--muted);
+}
+
+nav ul a:hover {
+  color: var(--accent);
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+/* ---------- Page layout ---------- */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 70px 0;
+  scroll-margin-top: 60px;
+}
+
+#home {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#home p {
+  color: var(--muted);
+  font-size: 1.2rem;
+}
+
+/* ---------- Buttons ---------- */
+.button,
+button {
+  display: inline-block;
+  background-color: var(--accent);
+  color: #000;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.button:hover,
+button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* ---------- Project cards ---------- */
+.project {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.project:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.project p {
+  margin: 0 0 8px;
+  color: var(--muted);
+}
+
+/* ---------- Resume ---------- */
+#resume ul {
+  padding-left: 20px;
+  color: var(--muted);
+}
+
+#resume h3 {
+  margin-top: 24px;
+}
+
+/* ---------- Contact form ---------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 500px;
+}
+
+label {
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+input,
+textarea {
+  background-color: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+form button {
+  margin-top: 16px;
+  align-self: flex-start;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+/* ---------- Small screens (phones) ---------- */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav ul {
+    gap: 16px;
+  }
+}
+
+/* ---------- Scroll effects ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background-color: var(--accent);
+  z-index: 20;
+}
+
+.glow {
+  position: fixed;
+  top: -150px;
+  right: -150px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.35), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Respect people who turn off animations in their system settings */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---------- Form feedback ---------- */
+#formStatus {
+  margin: 8px 0 0;
+  min-height: 1.5em;
+}
+
+#formStatus.success {
+  color: #86efac;
+}
+
+#formStatus.error {
+  color: #fca5a5;
+}
