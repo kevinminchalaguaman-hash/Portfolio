@@ -3,125 +3,286 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kevin Minchala | Portfolio</title>
-  <link rel="stylesheet" href="/static/style.css">
+  <title>Kevin Minchala | Data Science and Economics</title>
+  <meta name="description" content="Kevin Minchala is a Data Science and Economics student at Rutgers University seeking data analyst internships.">
+
+  <!-- Link previews on LinkedIn, iMessage, Slack, and others -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kevin Minchala | Data Science and Economics">
+  <meta property="og:description" content="Data Science and Economics student at Rutgers University, seeking data analyst internships.">
+  <meta property="og:url" content="{{ request.url_root }}">
+  <meta property="og:image" content="{{ request.url_root }}static/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
-  <div id="progress"></div>
-  <div class="glow"></div>
- 
-  <header>
-    <nav>
-      <a href="#home" class="logo">KevinMinchala</a>
-      <ul>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="progress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Main">
+      <a href="#top" class="brand">Kevin Minchala</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+      <ul class="nav-links" id="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#resume">Resume</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
       </ul>
     </nav>
   </header>
- 
-  <main>
- 
-    <section id="home" class="reveal">
-      <h1>Kevin Minchala</h1>
-      <p>Data Science and Economics student at Rutgers University, turning raw data into clear, confident decisions.</p>
-      <a href="#projects" class="button">Explore my work</a>
+
+  <main id="main">
+
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="top">
+      <div class="hero-text">
+        <p class="status"><span class="status-dot" aria-hidden="true"></span>Seeking data analyst internships</p>
+        <h1 class="hero-name">Kevin<br>Minchala</h1>
+        <p class="hero-lede">Data Science and Economics student at Rutgers University. I pair technical skill with economic reasoning to turn data into decisions people can act on.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">See my projects</a>
+          <a href="{{ url_for('static', filename='resume.pdf') }}" class="btn btn-ghost" target="_blank" rel="noopener">Open my resume</a>
+        </div>
+      </div>
+
+      <figure class="hero-portrait">
+        <div class="portrait-frame">
+          <img src="{{ url_for('static', filename='images/headshot.jpg') }}" alt="Kevin Minchala in a gray blazer and white shirt" width="720" height="900" fetchpriority="high">
+        </div>
+        <svg class="trend" viewBox="0 0 600 200" aria-hidden="true">
+          <defs>
+            <linearGradient id="trendFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#c7a8ff" stop-opacity="0.35"/>
+              <stop offset="1" stop-color="#c7a8ff" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path class="trend-area" d="M0,170 L60,160 L110,165 L170,140 L230,148 L290,118 L350,124 L410,92 L470,98 L530,60 L590,40 L590,200 L0,200 Z"/>
+          <path class="trend-line" pathLength="1" d="M0,170 L60,160 L110,165 L170,140 L230,148 L290,118 L350,124 L410,92 L470,98 L530,60 L590,40"/>
+          <circle class="trend-point" cx="590" cy="40" r="7"/>
+        </svg>
+      </figure>
     </section>
- 
-    <section id="about" class="reveal">
-      <h2>About</h2>
-      <p>I'm a sophomore at Rutgers University pursuing a double focus in Data Science and Economics, with a minor in Business. The combination is deliberate: data science gives me the technical toolkit to work with information, and economics gives me the judgment to understand what it means in the real world.</p>
-      <p>Three-plus years in customer service shaped how I work. I communicate clearly, stay composed under pressure, and approach problems with a calm, solutions-first mindset. I learn quickly, take my work seriously, and do my best thinking when the challenge is genuinely hard.</p>
+
+    <!-- ===== About ===== -->
+   <section class="section band about reveal" id="about">
+      <h2 class="section-title">About</h2>
+      <div class="about-body">
+        <p>I'm a sophomore at Rutgers University majoring in Data Science and Economics, with a minor in Business. The combination is deliberate: data science gives me the tools to work with information, and economics gives me the judgment to understand what it means in the real world.</p>
+        <p>More than three years in customer service shaped how I work. I communicate clearly, stay composed under pressure, and approach problems with a solutions-first mindset. I learn quickly, take my work seriously, and do my best thinking when the challenge is hard.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Studying</dt><dd>Data Science and Economics</dd></div>
+        <div><dt>Minor</dt><dd>Business</dd></div>
+        <div><dt>School</dt><dd>Rutgers University</dd></div>
+        <div><dt>Looking for</dt><dd>Data analyst internships</dd></div>
+      </dl>
     </section>
- 
-    <section id="projects" class="reveal">
-      <h2>Selected Projects</h2>
- 
-      <article class="project">
-        <h3>Personal Portfolio <span class="status">In progress</span></h3>
-        <p>A hand-built portfolio featuring a dark, responsive design, scroll-driven animation, and a contact form wired to a Python backend that stores each message as structured JSON.</p>
-        <ul class="tags">
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-          <li>Python</li>
-          <li>Flask</li>
+
+    <!-- ===== Projects ===== -->
+    <section class="section reveal" id="projects">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="project-list">
+
+        <article class="project">
+          <div class="project-visual">
+            <svg viewBox="0 0 320 220" role="img" aria-label="Sketch of this portfolio's layout">
+              <rect x="1" y="1" width="318" height="218" rx="12" fill="#000" stroke="#3b2a5e"/>
+              <rect x="1" y="1" width="318" height="30" rx="12" fill="#150c25"/>
+              <rect x="1" y="20" width="318" height="11" fill="#150c25"/>
+              <circle cx="20" cy="16" r="4" fill="#3b2a5e"/>
+              <circle cx="34" cy="16" r="4" fill="#3b2a5e"/>
+              <circle cx="48" cy="16" r="4" fill="#3b2a5e"/>
+              <rect x="24" y="56" width="118" height="16" rx="3" fill="#f2edfb"/>
+              <rect x="24" y="80" width="92" height="16" rx="3" fill="#f2edfb"/>
+              <rect x="24" y="108" width="140" height="6" rx="3" fill="#6f5f93"/>
+              <rect x="24" y="120" width="120" height="6" rx="3" fill="#6f5f93"/>
+              <rect x="24" y="142" width="56" height="16" rx="8" fill="#c7a8ff"/>
+              <rect x="200" y="48" width="96" height="120" rx="8" fill="#241640" stroke="#3b2a5e"/>
+              <polyline points="178,162 204,152 226,156 250,134 272,140 300,114" fill="none" stroke="#c7a8ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="24" y="186" width="272" height="1" fill="#3b2a5e"/>
+              <rect x="24" y="198" width="80" height="6" rx="3" fill="#6f5f93"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="project-head">
+              <h3>Personal portfolio</h3>
+              <span class="badge">In progress</span>
+            </div>
+            <p class="project-summary">The site you're on now, designed and coded from scratch to learn how a full website works from the ground up.</p>
+            <dl class="project-detail">
+              <div><dt>Built</dt><dd>A responsive layout, a Flask backend, and a contact form that emails messages straight to my inbox.</dd></div>
+              <div><dt>Result</dt><dd>Live on Render, and every push to GitHub redeploys the site automatically.</dd></div>
+            </dl>
+            <ul class="tags" aria-label="Tools used">
+              <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Python</li><li>Flask</li><li>Git</li>
+            </ul>
+            <a class="text-link" href="https://github.com/kevinminchalaguaman-hash/Portfolio" target="_blank" rel="noopener">View the code on GitHub</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-visual">
+            <svg viewBox="0 0 320 220" role="img" aria-label="Diagram: the browser sends a number to Flask, Flask runs a C++ program, and the result returns to the browser as JSON">
+              <defs>
+                <marker id="arrowHead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="#c7a8ff"/>
+                </marker>
+              </defs>
+              <text x="160" y="52" text-anchor="middle" fill="#b9add4" font-size="12">a number goes in</text>
+              <rect x="8" y="78" width="86" height="44" rx="8" fill="#241640" stroke="#3b2a5e"/>
+              <text x="51" y="105" text-anchor="middle" fill="#f2edfb" font-size="14" font-weight="600">Browser</text>
+              <rect x="117" y="78" width="86" height="44" rx="8" fill="#241640" stroke="#3b2a5e"/>
+              <text x="160" y="105" text-anchor="middle" fill="#f2edfb" font-size="14" font-weight="600">Flask</text>
+              <rect x="226" y="78" width="86" height="44" rx="8" fill="#241640" stroke="#c7a8ff"/>
+              <text x="269" y="105" text-anchor="middle" fill="#f2edfb" font-size="14" font-weight="600">C++</text>
+              <line x1="96" y1="100" x2="113" y2="100" stroke="#c7a8ff" stroke-width="2" marker-end="url(#arrowHead)"/>
+              <line x1="205" y1="100" x2="222" y2="100" stroke="#c7a8ff" stroke-width="2" marker-end="url(#arrowHead)"/>
+              <path d="M269,126 C269,192 51,192 51,128" fill="none" stroke="#c7a8ff" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrowHead)"/>
+              <text x="160" y="205" text-anchor="middle" fill="#b9add4" font-size="12">result returns as JSON</text>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="project-head">
+              <h3>Factorial calculator</h3>
+              <span class="badge">Practice build</span>
+            </div>
+            <p class="project-summary">A small full-stack app that connects three languages in a single request.</p>
+            <dl class="project-detail">
+              <div><dt>Built</dt><dd>The browser sends a number to a Flask server, which hands the math to a compiled C++ program.</dd></div>
+              <div><dt>Result</dt><dd>The answer travels back to the page as JSON, with clear errors for invalid input.</dd></div>
+            </dl>
+            <ul class="tags" aria-label="Tools used">
+              <li>Python</li><li>Flask</li><li>C++</li><li>JavaScript</li>
+            </ul>
+            <!-- When this project is on GitHub, add a link here like the one above. -->
+          </div>
+        </article>
+
+        <!-- Remove this block if you'd rather not show what's next. -->
+        <article class="project project-next">
+          <h3>Next: a data analysis project</h3>
+          <p>I'm planning a project that analyzes public economic data with Python. It will appear here once it's done.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== Resume ===== -->
+    <section class="section band reveal" id="resume">
+      <h2 class="section-title">Resume</h2>
+
+      <div class="background-grid">
+        <div>
+          <h3 class="block-title">Education</h3>
+          <ol class="timeline">
+            <li>
+              <!-- Add your expected graduation date here, for example "Expected May 2029". -->
+              <p class="tl-when">Current</p>
+              <h4>Rutgers University</h4>
+              <p>B.S. in Data Science and Economics, minor in Business.</p>
+            </li>
+          </ol>
+
+          <h3 class="block-title">Experience</h3>
+          <ol class="timeline">
+            <li>
+              <!-- Replace with your job title, employer, and dates, and add one entry per job. -->
+              <p class="tl-when">3+ years</p>
+              <h4>Customer service</h4>
+              <p>Handled customer questions and problems in fast-paced, client-facing roles, building strong communication and problem-solving skills.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div>
+          <h3 class="block-title">Skills</h3>
+          <div class="skill-group">
+            <h4>Programming</h4>
+            <ul class="tags"><li>Python</li><li>C++</li><li>JavaScript</li></ul>
+          </div>
+          <div class="skill-group">
+            <h4>Web and tools</h4>
+            <ul class="tags"><li>HTML</li><li>CSS</li><li>Flask</li><li>Git and GitHub</li></ul>
+          </div>
+          <!-- Add a "Data" group as you learn tools like SQL, Excel, pandas, or Tableau. -->
+          <div class="skill-group">
+            <h4>Working style</h4>
+            <ul class="tags"><li>Clear communication</li><li>Problem-solving under pressure</li><li>Collaboration</li></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-card" data-pdf="{{ url_for('static', filename='resume.pdf') }}">
+        <div>
+          <h3>Full resume</h3>
+          <p class="resume-card-text">PDF.<span class="hover-only"> Hover here to preview it.</span></p>
+        </div>
+        <a class="btn btn-primary" href="{{ url_for('static', filename='resume.pdf') }}" target="_blank" rel="noopener">Open resume (PDF)</a>
+        <div class="resume-preview" aria-hidden="true">
+          <canvas id="resumeCanvas"></canvas>
+          <p class="resume-preview-msg" id="resumePreviewMsg">Loading preview…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section class="section contact reveal" id="contact">
+      <div class="contact-intro">
+        <h2 class="section-title">Contact</h2>
+        <p class="contact-lede">Have an internship opening, a question about my work, or a project idea? Send a message and it goes straight to my inbox.</p>
+        <ul class="contact-links">
+          <li><a href="https://www.linkedin.com/in/kevin-minchalag" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/kevinminchalaguaman-hash" target="_blank" rel="noopener">GitHub</a></li>
         </ul>
-        <a href="https://github.com/kevinminchalaguaman-hash" class="project-link" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-      </article>
- 
-      <article class="project">
-        <h3>Factorial Calculator <span class="status">In progress</span></h3>
-        <p>A full-stack application that connects three languages: the browser sends a request to a Flask server, which hands the computation to a compiled C++ program and returns the result as JSON.</p>
-        <ul class="tags">
-          <li>Python</li>
-          <li>Flask</li>
-          <li>C++</li>
-          <li>JavaScript</li>
-        </ul>
-        <a href="https://github.com/kevinminchalaguaman-hash" class="project-link" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-      </article>
-    </section>
- 
-    <section id="resume" class="reveal">
-      <h2>Resume</h2>
- 
-      <h3>Education</h3>
-      <ul>
-        <li>Rutgers University: Data Science and Economics, minor in Business</li>
-      </ul>
- 
-      <h3>Experience</h3>
-      <ul>
-        <li>3+ years of customer service, building communication and problem-solving skills in fast-paced, client-facing environments</li>
-      </ul>
- 
-      <h3>Technical Skills</h3>
-      <ul>
-        <li>Python</li>
-        <li>C++</li>
-        <li>HTML, CSS, and JavaScript</li>
-        <li>Flask</li>
-      </ul>
- 
-      <a href="/static/resume.pdf" target="_blank" rel="noopener" class="button">Download my resume</a>
-    </section>
- 
-    <section id="contact" class="reveal">
-      <h2>Let's Connect</h2>
-      <p>Have a question, an opportunity, or an idea worth discussing? I'd love to hear from you.</p>
- 
-      <form id="contactForm">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
- 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
- 
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
- 
-        <button type="submit">Send message</button>
-        <p id="formStatus"></p>
+      </div>
+
+      <form id="contactForm" class="contact-form">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" maxlength="3000" required></textarea>
+        </div>
+        <!-- Hidden from people; bots that fill it in get ignored. -->
+        <div class="hp" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <button type="submit" class="btn btn-primary">Send message</button>
+        <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
       </form>
- 
-      <p class="contact-links">
-        Prefer another route?
-        <a href="https://www.linkedin.com/in/kevin-minchalag" target="_blank" rel="noopener">LinkedIn</a>
-        &middot;
-        <a href="https://github.com/kevinminchalaguaman-hash" target="_blank" rel="noopener">GitHub</a>
-      </p>
     </section>
- 
+
   </main>
- 
-  <footer>
-    <p>&copy; 2026 Kevin Minchala. Designed and built from scratch.</p>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>&copy; 2026 Kevin Minchala. Designed and built from scratch.</p>
+      <a href="#top" class="text-link">Back to top</a>
+    </div>
   </footer>
- 
-  <script src="/static/script.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </body>
 </html>
- 
